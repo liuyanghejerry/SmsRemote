@@ -1,4 +1,4 @@
-<!-- <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView1"
     android:layout_width="fill_parent"
@@ -57,24 +57,4 @@
 
     </LinearLayout>
 
-</ScrollView> -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" >
-
-    <Preference 
-            android:key="accept_sender"
-            android:summary="@string/accept_sender"
-            android:title="@string/accept_sender" />
-    <Preference 
-            android:key="post_url"
-            android:summary="@string/post_url"
-            android:title="@string/post_url" />
-    <CheckBoxPreference
-	        android:key="enabled"
-	        android:dependency="accept_sender"
-	        android:title="@string/enabled"
-	        android:summary="@string/enabled"
-	        android:defaultValue="false" />
-    
-</PreferenceScreen>
-
+</ScrollView>
