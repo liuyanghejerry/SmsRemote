@@ -4,9 +4,12 @@
     <string name="app_name">SmsRemote</string>
     <string name="action_settings">Settings</string>
     
-    <string name="settings">Settings</string><string name="accept_sender">Accept Sender (eg: 10086)</string>
-    <string name="post_url">Post Url (eg: http://example.com/submit)</string>
-    <string name="enabled">enabled</string>
-    <string name="save">Save</string>
+    <string name="settings">Settings</string>
+    <string name="accept_sender">Accept Sender</string>
+    <string name="accept_sender_summary">Sender\'s phone number (eg: 10086)</string>
+    <string name="post_url">Post Url</string>
+    <string name="post_url_summary">Web url you posted to (eg: http://example.com/submit)</string>
+    <string name="enabled">Enabled</string>
+    <string name="enabled_summary">Starts service now?</string>
 
 </resources>
