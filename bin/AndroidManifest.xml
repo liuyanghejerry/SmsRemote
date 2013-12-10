@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.liuyanghejerry.smsremote"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.liuyanghejerry.smsremote.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".SmsRepostService" android:enabled="true" android:exported="false"/>
+        <receiver android:name=".SMSReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

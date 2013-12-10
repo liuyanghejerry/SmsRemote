@@ -1,0 +1,80 @@
+<!-- <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/accept_sender"
+            android:inputType="phone" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/postUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/post_url"
+            android:textSize="6pt"
+            android:inputType="textUri" />
+
+        <CheckBox
+            android:id="@+id/isEnabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enabled" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save" 
+            android:onClick="saveSettings" />
+
+
+    </LinearLayout>
+
+</ScrollView> -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" >
+
+    <Preference 
+            android:key="accept_sender"
+            android:summary="@string/accept_sender"
+            android:title="@string/accept_sender" />
+    <Preference 
+            android:key="post_url"
+            android:summary="@string/post_url"
+            android:title="@string/post_url" />
+    <CheckBoxPreference
+	        android:key="enabled"
+	        android:dependency="accept_sender"
+	        android:title="@string/enabled"
+	        android:summary="@string/enabled"
+	        android:defaultValue="false" />
+    
+</PreferenceScreen>
+
