@@ -16,12 +16,14 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class SmsRepostService extends IntentService {
 	
-	// define your HTTP address here
-	public static final String WEBSITE = "http://www.example.com/login";
+	// change this if you want a more relax rule
+	static String URL_REGEX = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
 	public SmsRepostService() {
 		super("SmsRepostService");
@@ -35,12 +37,20 @@ public class SmsRepostService extends IntentService {
 		if(data.size() < 2) {
 			return ;
 		}
+	
+		SharedPreferences sharedSettings = PreferenceManager.getDefaultSharedPreferences(this);
+    	String post_url = sharedSettings.getString("post_url", "");
+    	
+    	if( !post_url.matches(URL_REGEX) ) {
+    		System.out.println("post url is invalid, ignored");
+    		return;
+    	}
 		
 		// Creating HTTP client
 		HttpClient httpClient = new DefaultHttpClient();
 
 		// Creating HTTP Post
-		HttpPost httpPost = new HttpPost(WEBSITE);
+		HttpPost httpPost = new HttpPost(post_url);
 		
 		// Building post parameters, key and value pair
 		// insert content you're interested in here

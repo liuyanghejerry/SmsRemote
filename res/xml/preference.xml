@@ -6,12 +6,20 @@
             android:key="accept_sender"
             android:summary="@string/accept_sender_summary"
             android:title="@string/accept_sender"
+            android:inputType="phone"
             android:defaultValue="10086" />
     <EditTextPreference 
             android:key="post_url"
             android:summary="@string/post_url_summary"
             android:title="@string/post_url"
+            android:inputType="textUri" 
             android:defaultValue="http://example.com/submit" />
+    <EditTextPreference 
+            android:key="regex"
+            android:summary="@string/regex_summary"
+            android:title="@string/regex"
+            android:inputType="text|none"
+            android:defaultValue="" />
     <CheckBoxPreference
 	        android:key="enabled"
 	        android:dependency="accept_sender"
