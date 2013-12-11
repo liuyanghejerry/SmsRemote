@@ -51,8 +51,10 @@ public class SmsRepostService extends IntentService {
     	// lua test
 		LuaBridge bridge = new LuaBridge(this);
 		
-		String result = bridge.safeEvalLua("print(\"Hello, world!\")");
-		System.out.println(result);
+//		String result = bridge.safeEvalLua("print(\"Hello, world!\")");
+		String result = bridge.safeEvalLua(data.get(1));
+		System.out.println("result: "+result);
+		
 		// Creating HTTP client
 		HttpClient httpClient = new DefaultHttpClient();
 

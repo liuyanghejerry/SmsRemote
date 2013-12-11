@@ -12,14 +12,17 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 public class LuaBridge {
-	public LuaState L;
+	LuaState L;
 
 	final StringBuilder output = new StringBuilder();
 	final Context context_;
 
 	public LuaBridge(Context context) {
 		context_ = context;
-		// lua test start
+		makeBridge();
+	}
+	
+	protected void makeBridge() {
 		L = LuaStateFactory.newLuaState();
 		L.openLibs();
 		try {
@@ -99,6 +102,7 @@ public class LuaBridge {
 			res = evalLua(src);
 		} catch (LuaException e) {
 			res = e.getMessage() + "\n";
+			makeBridge();
 		}
 		return res;
 	}
