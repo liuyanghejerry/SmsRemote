@@ -1,5 +1,6 @@
 package com.liuyanghejerry.smsremote;
 
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -18,13 +19,14 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
+import android.util.*;
 
 public class SmsRepostService extends IntentService {
 	
 	// change this if you want a more relax rule
 	static String URL_REGEX = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-
+	
+	
 	public SmsRepostService() {
 		super("SmsRepostService");
 	}
@@ -45,7 +47,12 @@ public class SmsRepostService extends IntentService {
     		System.out.println("post url is invalid, ignored");
     		return;
     	}
+    	
+    	// lua test
+		LuaBridge bridge = new LuaBridge(this);
 		
+		String result = bridge.safeEvalLua("print(\"Hello, world!\")");
+		System.out.println(result);
 		// Creating HTTP client
 		HttpClient httpClient = new DefaultHttpClient();
 
